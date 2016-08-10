@@ -10,10 +10,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>게시판</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<style>
+A:link {
+	text-decoration: none;
+}
+
+A:visited {
+	text-decoration: none;
+}
+
+A:active {
+	text-decoration: none;
+}
+
+A:hover {
+	text-decoration: underline;
+	color: #20b2aa;
+}
+</style>
 </head>
 <body>
-
-
 
 	<script language="javascript">
 		
@@ -48,34 +64,34 @@
 					String writer = rs.getString("writer");
 					String date = rs.getString("reg_date");
 					//String link = rs.getString("url");
-					int cnt = rs.getInt(5);
-					cnt++;
+					int hit = rs.getInt(5);
 		%>
 		<tr height="30" align="center">
 			<td><%=idx%></td>
-			<td style="cursor: pointer"
-				OnClick="location.href='view.jsp?idx=<%=idx%>'"><%=title%></td>
-			<!-- get방식으로 전달 -->
+			<td align="left"><a href="view.jsp?idx=<%=idx%>"><%=title%></td>
 			<!-- 제목에 링크거는 태그 -->
 			<td align="center"><%=writer%></td>
 			<td align="center"><%=date%></td>
-			<td><%=cnt%></td>
+			<td><%=hit%></td>
 		</tr>
 		<%
 			}
+				
 				rs.close();
 				pstmt.close();
 			} catch (SQLException e) {
 				out.println(e.toString());
 			}
 		%>
-		<tr align="center">
-			
-			<td><input type=button value="글쓰기" onclick="location.href = 'write.jsp'">
-		
-		</tr>
-	</table>
 
+	</table>
+	<tr align="right">
+
+		<td><input type=button value="글쓰기"
+			onclick="location.href = 'write.jsp'"><input type=button
+			value="수정" onclick="location.href = 'modify.jsp'"><input
+			type=button value="삭제" onclick="location.href = 'write.jsp'">
+	</tr>
 </body>
 </html>
 

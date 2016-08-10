@@ -15,7 +15,7 @@
 	Class.forName(driver);
 	String writer = request.getParameter("writer");
 	String title = request.getParameter("title");
-	String editor = request.getParameter("editor");
+	String memo = request.getParameter("editor");
 	
 
 	try {
@@ -27,9 +27,9 @@
 		pstmt.setString(1, title);
 		pstmt.setString(2, writer);
 		pstmt.setString(3, sdf.format(d));
-		pstmt.setString(4, editor);
+		pstmt.setString(4, memo);
 
-		pstmt.execute();
+		pstmt.executeUpdate();
 		pstmt.close();
 
 		conn.close();

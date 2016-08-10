@@ -20,15 +20,27 @@
 		if (rs.next()) {
 
 			String title = rs.getString("title");
-
 			String writer = rs.getString("writer");
-
 			String date = rs.getString("reg_date");
+			String memo=rs.getString("editor");
+			int hit = rs.getInt("hit");
+			hit++;
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>게시판</title>
+<script language="javascript">
+	function deleteCheck() {
+		var retVal = confirm("정말 취소하시겠습니까?");
+		if (retVal == true) {
+			location.href = "list.jsp";
+		} else {
+			return;
+		}
+	}
+</script>
 </head>
 <body>
 	<table>
@@ -83,11 +95,18 @@
 					</tr>
 					<tr>
 						<td width="0">&nbsp;</td>
+						<td align="center" width="76">내용</td>
+						<td width="319"><%=memo%></td>
+						<td width="0">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="0">&nbsp;</td>
 						<td width="399" colspan="2" height="200">
 					</tr>
 					<%
-					
-						rs.close();
+								sql = "UPDATE board SET HIT=" + hit + " where NUM=" +idx;
+								pstmt.executeUpdate(sql);
+								rs.close();
 								pstmt.close();
 								conn.close();
 							}
@@ -104,7 +123,9 @@
 					<tr align="center">
 						<td width="0">&nbsp;</td>
 						<td colspan="2" width="399">
-							 <input type=button
+							 <input onclick="location.href = 'modify.jsp?idx=<%=idx%>'" type=button
+							value="수정"> <input onclick="javascript:checkDelete()" type=button
+							value="삭제"> <input onclick="location.href = 'list.jsp'" type=button
 							value="목록"> 
 						<td width="0">&nbsp;</td>
 					</tr>
