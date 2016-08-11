@@ -51,7 +51,7 @@
 						</tr>
 						<tr>
 							<td align="center" width="76">내용</td>
-							<td width="700"><textarea name="editor"  id="editor"
+							<td width="700"><textarea name="tag"  id="tag"
 									style="HEIGHT: 220px; WIDTH: 610px" rows="10" cols="30"
 									></textarea></td>
 						</tr>
@@ -65,7 +65,7 @@
 									.createInIFrame({
 
 										oAppRef : oEditors,
-										elPlaceHolder : "editor",
+										elPlaceHolder : "tag",
 										sSkinURI : "/project4/editor/SmartEditor2Skin.html",
 										htParams : {
 											// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -95,7 +95,7 @@
 									form.editor.focus();
 									return;
 								} */
-								oEditors.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
+								oEditors.getById["tag"].exec("UPDATE_CONTENTS_FIELD", []);
 								form.submit();
 							}
 						</script>

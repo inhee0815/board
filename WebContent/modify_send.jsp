@@ -18,13 +18,14 @@
 		String writer = request.getParameter("writer");
 		String title = request.getParameter("title");
 		String date = request.getParameter("reg_date");
-		String memo = request.getParameter("editor");
+		String memo = request.getParameter("tag");
+		String notag=memo.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "").replaceAll("\r|\n|&nbsp;","");
 		Connection conn = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt = conn.prepareStatement("Select * FROM board where NUM=" + idx);
 		ResultSet rs = pstmt.executeQuery();
 
 		String sql = "UPDATE board SET WRITER='" + writer + "' ,TITLE='" + title + "' ,REG_DATE='" + sdf.format(d)
-				+ "' ,EDITOR='" + memo + "' WHERE NUM=" + idx;
+				+ "' ,tag='" + memo + "' ,notag='" + notag + "' WHERE NUM=" + idx;
 		pstmt.executeUpdate(sql);
 %>
 <script language=javascript>

@@ -22,7 +22,7 @@
 			String title = rs.getString("title");
 			String writer = rs.getString("writer");
 			String date = rs.getString("reg_date");
-			String memo=rs.getString("editor");
+			String memo=rs.getString("tag");
 			int hit = rs.getInt("hit");
 			hit++;
 

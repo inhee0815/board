@@ -29,7 +29,7 @@
 			System.out.println(writer);
 			title = rs.getString("title");
 			System.out.println(title);
-			memo = rs.getString("editor");
+			memo = rs.getString("tag");
 			System.out.println(memo);
 		}
 %>
@@ -81,7 +81,7 @@
 						</tr>
 						<tr>
 							<td align="center" width="76">내용</td>
-							<td width="700"><textarea name="editor" id="editor"
+							<td width="700"><textarea name="tag" id="tag"
 									style="HEIGHT: 220px; WIDTH: 610px" rows="10" cols="30"
 									><%=memo%></textarea></td>
 									<!--  스마트에디터는 textarea로 이루어지지 않았다. 단지 서버로 전송하고 모드를 변환하기 위해
@@ -99,7 +99,7 @@
 									.createInIFrame({
 
 										oAppRef : oEditors,
-										elPlaceHolder : "editor",
+										elPlaceHolder : "tag",
 										sSkinURI : "/project4/editor/SmartEditor2Skin.html",
 										htParams : {
 											// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
@@ -115,7 +115,7 @@
 
 							function writeCheck() {
 								var form = document.modifyform;
-								var sHTML = oEditors.getById["editor"].getIR();
+								var sHTML = oEditors.getById["tag"].getIR();
 								 if (!form.writer.value) {
 									alert("이름을 적어주세요.");
 									form.writer.focus();
@@ -131,7 +131,7 @@
 									form.editor.focus();
 									return;
 								}  */
-								oEditors.getById["editor"].exec(
+								oEditors.getById["tag"].exec(
 										"UPDATE_CONTENTS_FIELD", []);
 								//editor 모드의 iframe 영역에 입력된 내용을 textarea에 반영하라는 명령어
 								form.submit();

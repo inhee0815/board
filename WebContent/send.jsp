@@ -15,20 +15,21 @@
 	Class.forName(driver);
 	String writer = request.getParameter("writer");
 	String title = request.getParameter("title");
-	String memo = request.getParameter("editor");
-	
+	String memo = request.getParameter("tag");
+	String notag = memo.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "").replaceAll("\r|\n|&nbsp;","");
+
+
 
 	try {
 		Connection conn = DriverManager.getConnection(url, username, password);
 
-		String sql = "INSERT INTO board (title,writer,reg_date,editor) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO board (title,writer,reg_date,tag,notag) VALUES (?,?,?,?,?)";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-
 		pstmt.setString(1, title);
 		pstmt.setString(2, writer);
 		pstmt.setString(3, sdf.format(d));
 		pstmt.setString(4, memo);
-
+		pstmt.setString(5, notag);
 		pstmt.executeUpdate();
 		pstmt.close();
 
