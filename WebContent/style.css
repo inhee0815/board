@@ -22,14 +22,7 @@ table tr td{
     border-bottom: 2px solid #41a4d2;
     background: ##F4F7FB;
 }
-table table{
-	padding: 10px;
-    font-weight: bold;
-    border-top: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 2px solid #41a4d2;
-    background: ##F4F7FB;
-}
+
 
 .timer{
 	font-size:30pt;

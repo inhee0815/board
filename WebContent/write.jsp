@@ -7,6 +7,7 @@
 <html>
 <head>
 <title>게시판</title>
+
 <script type="text/javascript"
 	src="/project4/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 <script type="text/javascript"
@@ -34,7 +35,7 @@
 						<tr>
 							<td width="0">&nbsp;</td>
 							<td align="center" width="76">작성자</td>
-							<td><input width="500" type="text" value="" name="writer" /></td>
+							<td><input width="700" type="text" value="" name="writer" /></td>
 							<td width="0">&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
@@ -43,19 +44,21 @@
 						<tr>
 							<td width="0">&nbsp;</td>
 							<td align="center" width="76">제목</td>
-							<td><input width="500" type="text" value="" name="title" /></td>
+							<td><input width="700" type="text" value="" name="title" /></td>
 							<td width="0">&nbsp;</td>
 						</tr>
 						<tr height="1" bgcolor="#dddddd">
 							<td colspan="4" width="407"></td>
 						</tr>
 						<tr>
+						<td width="0">&nbsp;</td>
 							<td align="center" width="76">내용</td>
-							<td width="700"><textarea name="tag"  id="tag"
+							<td><textarea name="tag"  id="tag"
 									style="HEIGHT: 220px; WIDTH: 610px" rows="10" cols="30"
 									></textarea></td>
+									<td width="0">&nbsp;</td>
 						</tr>
-
+						
 						<!-- action은 폼이 전송되었을 때 넘어가는 페이지의 url -->
 
 						<script type="text/javascript">

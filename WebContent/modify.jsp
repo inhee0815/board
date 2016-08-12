@@ -80,15 +80,18 @@
 							<td colspan="4" width="407"></td>
 						</tr>
 						<tr>
+						<td width="0">&nbsp;</td>
 							<td align="center" width="76">내용</td>
-							<td width="700"><textarea name="tag" id="tag"
+							<td><textarea name="tag"  id="tag"
 									style="HEIGHT: 220px; WIDTH: 610px" rows="10" cols="30"
 									><%=memo%></textarea></td>
+									<td width="0">&nbsp;</td>
 									<!--  스마트에디터는 textarea로 이루어지지 않았다. 단지 서버로 전송하고 모드를 변환하기 위해
 									textarea를 사용할뿐, html 코드를 생성하는 editor 영역은 iframe으로 구성되었으며
 									textarea는 html 모드나 text 모드에서 태그값을 보여줄 때 사용
 									editor 모드에 내용을 넣고 싶으면 smartEditor2.html 파일의 pasteHTML() 함수 -->
 						</tr>
+									
 
 						<!-- action은 폼이 전송되었을 때 넘어가는 페이지의 url -->
 

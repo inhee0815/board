@@ -32,10 +32,10 @@
 <head>
 <title>게시판</title>
 <script language="javascript">
-	function deleteCheck() {
-		var retVal = confirm("정말 취소하시겠습니까?");
+	function checkDelete() {
+		var retVal = confirm("정말 삭제하시겠습니까?");
 		if (retVal == true) {
-			location.href = "list.jsp";
+			location.href = "delete.jsp?idx=<%=idx%>";
 		} else {
 			return;
 		}
