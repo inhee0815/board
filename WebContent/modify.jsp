@@ -38,7 +38,9 @@
 <head>
 <title>게시판</title>
 <script type="text/javascript"
-	src="/project4/editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+	src="/project4/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+	<script type="text/javascript"
+	src="/project4/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js"" charset="utf-8"></script>
 <script type="text/javascript"
 	src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script language="javascript">
@@ -103,7 +105,7 @@
 
 										oAppRef : oEditors,
 										elPlaceHolder : "tag",
-										sSkinURI : "/project4/editor/SmartEditor2Skin.html",
+										sSkinURI : "/project4/se2/SmartEditor2Skin.html",
 										htParams : {
 											// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
 											bUseToolbar : true,
@@ -114,7 +116,12 @@
 											
 										}
 									});
-							
+							function pasteHTML(filepath){
+							    var sHTML = '<img src="<%=request.getContextPath()%>/uploadFolder/'+filepath+'">';
+
+							    oEditors.getById["tag"].exec("PASTE_HTML", [sHTML]); 
+							}
+
 
 							function writeCheck() {
 								var form = document.modifyform;
